@@ -1,69 +1,35 @@
 # Gestão Comunitária Livre (GCL)
 
-Sistema desktop gratuito e de código aberto para controle de estoque, validade de produtos e fluxo de caixa diário, desenvolvido como solução computacional do **Projeto de Extensão III** do curso de **Bacharelado em Ciência da Computação** (Guarapari/ES).
+Sistema simples em Python para controle de estoque, validade e fluxo de caixa diário.
 
-O projeto foi criado para apoiar pequenos empreendedores, feirantes, trabalhadores autônomos e comércios familiares da comunidade da Praia do Morro que ainda controlavam suas vendas e estoques em cadernos de papel.
+Fiz esse projeto para o Projeto de Extensão III de Ciência da Computação (Guarapari/ES), com a ideia de ajudar feirantes, autônomos e pequenos comerciantes da Praia do Morro que ainda faziam o controle de vendas e mercadorias no caderno.
 
-## Funcionalidades
+## O que o sistema faz
 
-- **Tela única simplificada:** operações de estoque, busca e acesso rápido às vendas sem menus complexos.
-- **Perfis personalizáveis:** categorias adaptadas para Feirante/Hortifrúti, Mercearia Familiar, Lanches Caseiros, Artesanato ou Comércio Geral.
-- **Atalhos rápidos no teclado:**
-  - `F1`: Registrar venda (com baixa automática no estoque)
-  - `F2`: Cadastrar novo produto
-  - `F3`: Buscar produto por nome/categoria
-  - `F4`: Fechamento de caixa diário (com exportação em `.txt`)
-  - `F5`: Visualizar alertas de estoque mínimo e validade
-- **Alertas visuais por cores:**
-  - **Vermelho:** produto sem estoque, abaixo do estoque mínimo ou vencido.
-  - **Amarelo:** produto a até 15 dias da data de vencimento.
-- **Funcionamento offline:** utiliza banco de dados relacional local **SQLite**, sem exigir conexão com a internet.
+- Cadastro, edição e exclusão de produtos (com preço de custo, venda, estoque mínimo e validade)
+- Registro de vendas com baixa automática no estoque
+- Fechamento de caixa diário com opção de salvar o resumo em `.txt`
+- Alerta visual na tabela: vermelho para estoque baixo/vencido e amarelo para itens a até 15 dias do vencimento
+- Perfis de categorias adaptáveis (Feirante/Hortifrúti, Mercearia Familiar, Lanches Caseiros, Artesanato e Comércio Geral)
+- Funciona totalmente offline usando SQLite
 
-## Tecnologias Utilizadas
+Atalhos na tela principal:
+- F1: Registrar venda
+- F2: Cadastrar produto
+- F3: Buscar produto
+- F4: Fechamento de caixa
+- F5: Ver alertas
 
-- **Python 3**
-- **Tkinter / ttk** (interface gráfica nativa)
-- **SQLite 3** (banco de dados local em arquivo único)
-- **PyInstaller** (empacotamento em executável portátil para Windows)
+## Tecnologias
 
-## Estrutura do Projeto
+- Python 3
+- Tkinter (interface gráfica)
+- SQLite3 (banco local)
+- PyInstaller (para gerar o `.exe`)
 
-```text
-gestao-comunitaria-livre/
-├── app.py          # Interface gráfica e controle de telas/atalhos
-├── banco.py        # Conexão SQLite, CRUD de produtos/vendas e ordenação de alertas
-├── README.md       # Documentação do projeto
-├── LICENSE         # Licença MIT (uso e distribuição livre)
-└── .gitignore      # Arquivos ignorados pelo Git
-```
+## Como rodar
 
-## Como Executar
-
-Não é necessário instalar bibliotecas externas para rodar a partir do código-fonte (todas fazem parte da biblioteca padrão do Python 3).
+Não precisa instalar nenhuma biblioteca externa, só ter o Python 3 instalado:
 
 ```bash
 python app.py
-```
-
-Na primeira execução, o arquivo `gcl_dados.db` será criado automaticamente na mesma pasta.
-
-## Como Gerar o Executável Portátil (Windows)
-
-Para distribuir o sistema via pen drive sem exigir a instalação do Python no computador do empreendedor:
-
-```bash
-pip install pyinstaller
-pyinstaller --onefile --windowed --name GCL app.py
-```
-
-O executável `GCL.exe` será gerado dentro da pasta `dist/`.
-
-## Autor
-
-**Ramon Moreira Gomes**  
-Bacharelado em Ciência da Computação — Guarapari/ES  
-Projeto de Extensão III — Programa de Inovação e Empreendedorismo (2026)
-
-## Licença
-
-Distribuído sob a licença **MIT**. Uso, cópia e modificação livres para a comunidade.
